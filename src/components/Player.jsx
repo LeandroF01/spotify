@@ -1,4 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
+import { usePlayerStore } from "../store/playerStore";
+
 export const Pause = ({ className }) => (
 	<svg
 		className={className}
@@ -53,7 +55,7 @@ export const Volume = () => (
 );
 
 export function Player() {
-	const [isPlaying, setIsPlaying] = useState(false);
+	const { isPlaying, setIsPlaying } = usePlayerStore((state) => state);
 
 	const [CurrentSong, setCurrentSong] = useState(null);
 
