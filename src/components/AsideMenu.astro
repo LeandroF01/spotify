@@ -3,6 +3,8 @@ import Libary from "../icons/Library.astro";
 import Home from "../icons/Home.astro";
 import Search from "../icons/Search.astro";
 import SideMenuItems from "../components/SideMenuItems.astro";
+import SideMenuCard from "../components/SideMenuCard.astro";
+import { playlists } from "../lib/data";
 ---
 
 <nav class="flex flex-col flex-1 gap-2">
@@ -13,11 +15,10 @@ import SideMenuItems from "../components/SideMenuItems.astro";
 		</ul>
 	</div>
 	<div class="bg-zinc-900 rounded-lg p-2 flex-1">
-		<ul>
-			<SideMenuItems href="/">
-				<Libary />
-				 Your Library
-			</SideMenuItems>
-		</ul>
+		<SideMenuItems href="/">
+			<Libary />
+			Your Library
+		</SideMenuItems>
+		{playlists.map((playlist) => <SideMenuCard playlist={playlist} />)}
 	</div>
 </nav>
